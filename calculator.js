@@ -4,14 +4,14 @@ var operatorTombol = document.getElementsByClassName("operator");
 var samaDenganTombol = document.querySelector(".sama-dengan");
 var resetTombol = document.querySelector(".reset");
 
-let sementara = "";
-let operator = "";
-let angka1 = null;
-let hasilBaru = false;
+    let angka1 = null;
+    let angka2 = null;
+    let operator = "";
+    let hasilBaru = false;
 
-    // Klik angka
-    for (let i = 0; i < angkaTombol.length; i++) {
-      angkaTombol[i].addEventListener("click", function() {
+    // klik angka
+    for (let tombol of angkaTombol) {
+      tombol.addEventListener("click", function() {
         if (hasilBaru) {
           tampilan.value = "";
           hasilBaru = false;
@@ -20,31 +20,39 @@ let hasilBaru = false;
       });
     }
 
-    // Klik operator
-    for (let i = 0; i < operatorTombol.length; i++) {
-      operatorTombol[i].addEventListener("click", function() {
-        angka1 = tampilan.value;
+    // klik operator
+    for (let tombol of operatorTombol) {
+      tombol.addEventListener("click", function() {
+        if (tampilan.value === "") return;
+        angka1 = parseFloat(tampilan.value);
         operator = this.textContent;
         tampilan.value = "";
       });
     }
 
-    // Klik sama dengan
+    // klik sama dengan
     samaDenganTombol.addEventListener("click", function() {
-      angka2 = tampilan.value;
+      if (tampilan.value === "" || angka1 === null) return;
+      angka2 = parseFloat(tampilan.value);
       let hasil = 0;
-      if (operator === "+") hasil = parseFloat(angka1) + parseFloat(angka2);
-      else if (operator === "-") hasil = parseFloat(angka1) - parseFloat(angka2);
-      else if (operator === "x") hasil = parseFloat(angka1) * parseFloat(angka2); //kali
-      else if (operator === "/") hasil = parseFloat(angka1) / parseFloat(angka2);
+      switch(operator) {
+        case "+": hasil = angka1 + angka2; break;
+        case "-": hasil = angka1 - angka2; break;
+        case "x": hasil = angka1 * angka2; break;
+        case "/": hasil = angka1 / angka2; break;
+      }
       tampilan.value = hasil;
       hasilBaru = true;
+      angka1 = null;
+      angka2 = null;
+      operator = "";
     });
 
-    // Klik reset
+    // klik reset
     resetTombol.addEventListener("click", function() {
       tampilan.value = "";
-      angka1 = "";
-      angka2 = "";
+      angka1 = null;
+      angka2 = null;
       operator = "";
+      hasilBaru = false;
     });
