@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe ke @BosLuki</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #000000, #0a0a0a 60%, #111 100%);
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff0000, #ff6600, #ff0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 15px 0 25px;
+      color: #ddd;
+    }
+
+    .btn-subscribe {
+      display: inline-block;
+      padding: 16px 40px;
+      font-size: 1.3rem;
+      color: white;
+      background: linear-gradient(90deg, #ff0000, #ff6600);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .btn-subscribe:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 50px rgba(255, 102, 0, 0.9);
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.6;
+      animation: float 10s infinite ease-in-out alternate;
+    }
+
+    .orb1 {
+      width: 300px;
+      height: 300px;
+      background: #ff0000;
+      top: 10%;
+      left: 10%;
+    }
+
+    .orb2 {
+      width: 400px;
+      height: 400px;
+      background: #ff6600;
+      bottom: 10%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
+      50% { box-shadow: 0 0 60px rgba(255, 102, 0, 1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-40px); }
+    }
+
+    .channel-tag {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #ff6600;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+
+  <div class="container">
+    <h1>SUBSCRIBE SEKARANG!</h1>
+    <p>Bergabunglah dengan kekuatan editor sejati — BosLuki Pro 🔥</p>
+    <a href="https://www.youtube.com/channel/UCmHYW5RB6Ku00PuaYD783Rw" target="_blank">
+      <button class="btn-subscribe">💥 Klik di Sini 💥</button>
+    </a>
+    <div class="channel-tag">@BosLuki Universe 🌌</div>
+  </div>
+
+  <footer>
+    © 2025 BosLuki Productions — “Kreativitas Tanpa Batas.”
+  </footer>
+</body>
+</html>

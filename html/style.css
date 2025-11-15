@@ -1,0 +1,87 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #b3e5fc, #e3f2fd);
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+.kontainer {
+  text-align: center;
+  background: #white;
+  padding: 2em;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.lampu-traffic {
+  background: #333;
+  width: 120px;
+  margin: 0 auto 2em;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.lampu {
+  width: 80px;
+  height: 80px;
+  margin: 15px auto;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 currentColor;
+}
+
+.lampu.merah { background: red; }
+.lampu.kuning { background: yellow; }
+.lampu.hijau { background: lime; }
+
+.lampu.nyala {
+  opacity: 1;
+  box-shadow: 0 0 30px currentColor;
+  animation: berkedip 0.5s ease-in-out;
+}
+
+@keyframes berkedip {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.kontrol, .kontrol-manual {
+  margin: 1em 0;
+}
+
+.tombol {
+  background: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tombol:hover {
+  background: #1a237e;
+}
+
+.manual {
+  background: #18433fff;
+}
+
+.manual:hover {
+  background: #00695c;
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f51b5;
+  font-weight: 600;
+}

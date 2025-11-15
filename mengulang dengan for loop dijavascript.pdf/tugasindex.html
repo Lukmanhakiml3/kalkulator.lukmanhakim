@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Listener Interaktif by @BosLuki</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0f24, #1c1f3c);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      color: #00d8ff;
+      text-shadow: 0 0 15px #00d8ff;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      color: white;
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 150, 255, 0.5);
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 200, 255, 0.8);
+    }
+
+    #teks {
+      margin-top: 20px;
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+      color: #ffea00;
+      text-shadow: 0 0 10px #ffea00;
+    }
+
+    #kotak {
+      width: 120px;
+      height: 120px;
+      margin: 30px auto;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #ff0000, #ff6600);
+      box-shadow: 0 0 30px rgba(255, 100, 0, 0.7);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    #kotak:hover {
+      transform: scale(1.1);
+    }
+
+    .sparkle {
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #ff6600; }
+      to { box-shadow: 0 0 30px #ffff66; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎇 Belajar Event Listener Keren by @BosLuki 🎇</h1>
+
+  <!-- Tombol 1 -->
+  <button id="tombol-keren">✨ Klik Aku!</button>
+
+  <!-- Tombol 2 -->
+  <button id="test">🚀 Test Klik</button>
+
+  <!-- Tombol 3 -->
+  <button id="ubah-tulisan">🎭 Ubah Tulisan</button>
+
+  <h2 id="teks">Teks Asli</h2>
+
+  <!-- Kotak Interaktif -->
+  <div id="kotak"></div>
+
+  <script>
+    // Tombol 1: gonta-ganti warna latar belakang halaman
+    const tombolKeren = document.getElementById("tombol-keren");
+    let warnaIndex = 0;
+    const warnaList = ["#ff004c", "#00ffea", "#ffa600", "#6a00ff", "#00ff59"];
+
+    tombolKeren.addEventListener("click", function() {
+      document.body.style.background = `linear-gradient(135deg, ${warnaList[warnaIndex]}, #000)`;
+      warnaIndex = (warnaIndex + 1) % warnaList.length;
+      alert("Kamu mengklik tombol keren! 💥");
+    });
+
+    // Tombol 2: berubah teks & animasi glow
+    const tombolTest = document.getElementById("test");
+    let aktif = false;
+
+    tombolTest.addEventListener("click", function() {
+      aktif = !aktif;
+      tombolTest.textContent = aktif ? "🌟 Mode Glow Aktif" : "🚀 Test Klik";
+      tombolTest.style.background = aktif
+        ? "linear-gradient(90deg, #ffcc00, #ff6600)"
+        : "linear-gradient(90deg, #007bff, #00c6ff)";
+      tombolTest.classList.toggle("sparkle");
+    });
+
+    // Tombol 3: ubah teks dengan animasi & warna acak
+    const tombolUbah = document.getElementById("ubah-tulisan");
+    const teks = document.getElementById("teks");
+
+    tombolUbah.addEventListener("click", function() {
+      const kata = ["Teks Berubah!", "Keren Banget!", "BosLuki Pro!", "Luar Biasa!", "🔥 WOW! 🔥"];
+      const acak = Math.floor(Math.random() * kata.length);
+      teks.textContent = kata[acak];
+      teks.style.color = warnaList[acak];
+      teks.style.textShadow = `0 0 15px ${warnaList[acak]}`;
+    });
+
+    // Kotak: berubah warna dan ukuran ketika diklik
+    const kotak = document.getElementById("kotak");
+    const warnaKotak = ["#ff0000", "#00ffea", "#ffea00", "#00ff59", "#ff00f7"];
+    let kotakIndex = 0;
+
+    kotak.addEventListener("click", function() {
+      kotak.style.background = warnaKotak[kotakIndex];
+      kotak.style.boxShadow = `0 0 30px ${warnaKotak[kotakIndex]}`;
+      kotak.style.transform = "rotate(15deg) scale(1.1)";
+      setTimeout(() => {
+        kotak.style.transform = "rotate(0deg) scale(1)";
+      }, 300);
+      kotakIndex = (kotakIndex + 1) % warnaKotak.length;
+    });
+
+    kotak.addEventListener("mouseover", function() {
+      kotak.style.opacity = 0.8;
+    });
+
+    kotak.addEventListener("mouseout", function() {
+      kotak.style.opacity = 1;
+    });
+  </script>
+</body>
+</html>

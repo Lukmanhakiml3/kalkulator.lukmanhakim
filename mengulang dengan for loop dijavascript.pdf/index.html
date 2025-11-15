@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mengulang Dengan for Loop di JavaScript</title>
+</head>
+<body>
+  <h1>Mengulang Dengan for Loop di JavaScript</h1>
+  
+  <p>Perulangan atau <em>looping</em> adalah proses mengulang eksekusi kode beberapa kali. Salah satu jenis perulangan yang paling umum digunakan di JavaScript adalah <strong>for loop</strong>.</p>
+
+  <h2>Struktur Dasar for Loop</h2>
+  <pre><code>for (inisialisasi; kondisi; iterasi) {
+    // blok kode yang diulang
+}</code></pre>
+
+  <p><strong>Penjelasan bagian:</strong></p>
+  <ul>
+    <li><strong>Inisialisasi</strong>: bagian ini dijalankan sekali sebelum perulangan dimulai. Biasanya digunakan untuk mendeklarasikan variabel penghitung, misalnya <code>let i = 0</code>.</li>
+    <li><strong>Kondisi</strong>: perulangan akan terus berjalan selama kondisi ini bernilai <code>true</code>.</li>
+    <li><strong>Iterasi</strong>: bagian ini dijalankan setiap kali setelah satu putaran selesai, biasanya untuk menambah atau mengurangi nilai penghitung, misalnya <code>i++</code>.</li>
+  </ul>
+
+  <h2>Contoh 1: Menampilkan angka 1 sampai 5</h2>
+  <pre><code>for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}</code></pre>
+
+  <p>Output:</p>
+  <pre><code>1
+2
+3
+4
+5</code></pre>
+
+  <h2>Contoh 2: Menjumlahkan angka dari 1 sampai 10</h2>
+  <pre><code>let total = 0;
+
+for (let i = 1; i <= 10; i++) {
+    total += i;
+}
+
+console.log("Total: " + total);</code></pre>
+
+  <p>Output:</p>
+  <pre><code>Total: 55</code></pre>
+
+  <h2>Contoh 3: Menampilkan bilangan genap dari 2 sampai 10</h2>
+  <pre><code>for (let i = 2; i <= 10; i += 2) {
+    console.log(i);
+}</code></pre>
+
+  <p>Output:</p>
+  <pre><code>2
+4
+6
+8
+10</code></pre>
+
+  <h2>Penjelasan Singkat</h2>
+  <p>
+    Dalam contoh di atas:
+    <ul>
+      <li><code>let i = 2</code> → nilai awal variabel penghitung.</li>
+      <li><code>i <= 10</code> → kondisi agar loop berhenti jika i sudah lebih besar dari 10.</li>
+      <li><code>i += 2</code> → menambah nilai i sebanyak 2 di setiap putaran.</li>
+    </ul>
+  </p>
+
+  <h2>Kesimpulan</h2>
+  <p>
+    Struktur <code>for</code> loop memudahkan kita untuk melakukan perulangan dalam jumlah tertentu.  
+    Rumus sederhananya:
+  </p>
+  <pre><code>for (awal; syarat; perubahan) {
+    // kode yang diulang
+}</code></pre>
+
+  <p>
+    Dengan memahami logika inisialisasi, kondisi, dan iterasi, kamu bisa membuat berbagai macam pola perulangan — dari yang sederhana hingga yang kompleks.
+  </p>
+
+  <hr>
+  <p><em>Disusun oleh BosLuki — Belajar JavaScript dengan cara mudah dan keren!</em></p>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Modern by @BosLuki</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #2b2b2b, #1a1a1a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .kalkulator {
+      background: #e3e3e3;
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      width: 320px;
+      transition: 0.3s ease;
+    }
+
+    .kalkulator:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .tampilan {
+      width: 100%;
+      height: 60px;
+      border-radius: 10px;
+      border: none;
+      background: #f1f1f1;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 20px;
+      color: #333;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .tombol {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      border: none;
+      height: 55px;
+      border-radius: 15px;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      background: #555;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    }
+
+    .operator {
+      background: #ff9800;
+      color: #fff;
+    }
+
+    .operator:hover {
+      background: #ffb43c;
+    }
+
+    .reset {
+      grid-column: span 4;
+      background: black;
+      color: white;
+      font-size: 18px;
+      height: 50px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .reset:hover {
+      background: #222;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ff8800;
+      font-weight: 600;
+      text-shadow: 0 0 10px #ffae00, 0 0 20px #ffae00;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ffae00; }
+      to { text-shadow: 0 0 25px #ffae00; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="kalkulator">
+    <input type="text" id="tampilan" class="tampilan" placeholder="0" readonly>
+
+    <div class="tombol">
+      <button class="angka">7</button>
+      <button class="angka">8</button>
+      <button class="angka">9</button>
+      <button class="operator">/</button>
+
+      <button class="angka">4</button>
+      <button class="angka">5</button>
+      <button class="angka">6</button>
+      <button class="operator">x</button>
+
+      <button class="angka">1</button>
+      <button class="angka">2</button>
+      <button class="angka">3</button>
+      <button class="operator">-</button>
+
+      <button class="angka">.</button>
+      <button class="angka">0</button>
+      <button id="samadengan">=</button>
+      <button class="operator">+</button>
+    </div>
+
+    <button class="reset" id="reset">Reset</button>
+    <div class="footer">🔥 Subscribe @BosLuki 🔥</div>
+  </div>
+
+  <script>
+    const tampilan = document.getElementById("tampilan");
+    const angkaTombol = document.querySelectorAll(".angka");
+    const operatorTombol = document.querySelectorAll(".operator");
+    const samaDenganTombol = document.getElementById("samadengan");
+    const resetTombol = document.getElementById("reset");
+
+    let ekspresi = "";
+
+    angkaTombol.forEach(tombol => {
+      tombol.addEventListener("click", () => {
+        ekspresi += tombol.textContent;
+        tampilan.value = ekspresi;
+      });
+    });
+
+    operatorTombol.forEach(tombol => {
+      tombol.addEventListener("click", () => {
+        ekspresi += " " + tombol.textContent + " ";
+        tampilan.value = ekspresi;
+      });
+    });
+
+    samaDenganTombol.addEventListener("click", () => {
+      try {
+        let hasil = ekspresi.replace(/x/g, "*");
+        hasil = eval(hasil);
+        tampilan.value = hasil;
+        ekspresi = hasil.toString();
+      } catch (err) {
+        tampilan.value = "Error";
+        ekspresi = "";
+      }
+    });
+
+    resetTombol.addEventListener("click", () => {
+      ekspresi = "";
+      tampilan.value = "0";
+    });
+  </script>
+
+</body>
+</html>

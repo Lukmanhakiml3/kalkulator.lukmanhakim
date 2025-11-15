@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mengulang dengan for Loop di JavaScript — BosLuki Edu</title>
+  <style>
+    :root{
+      --bg:#0f1720; --card:#0b1220; --accent:#00d8ff; --muted:#9aa6b2; --glass: rgba(255,255,255,0.03);
+    }
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#08101a 0%, #07131a 100%);
+      color:#e6eef6;
+      padding:28px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width:900px;
+      margin:0 auto;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:10px;
+      background:linear-gradient(135deg,#ff6a00,#ff2d00);
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;
+      box-shadow:0 8px 30px rgba(255,80,20,0.12);
+      font-family:monospace;
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted); margin:6px 0 24px;}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px; padding:18px; margin-bottom:18px; box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    h2 { margin:0 0 8px; font-size:16px; color:var(--accent); }
+    p { margin:8px 0; color:#d9e9f2; line-height:1.5; }
+
+    pre {
+      background: rgba(0,0,0,0.45);
+      padding:12px;
+      border-radius:8px;
+      overflow:auto;
+      color:#dbeffd;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+      font-size:13px;
+      margin:12px 0;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:16px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      padding:12px;border-radius:10px;
+    }
+
+    .btn{
+      display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#001;cursor:pointer;font-weight:700;
+      border:none; box-shadow:0 6px 18px rgba(0,216,255,0.12); margin-right:8px;
+    }
+    .btn.secondary{ background:transparent;color:var(--accent);border:1px solid rgba(0,216,255,0.12);}
+    .muted{ color:var(--muted); font-size:13px; }
+
+    /* demo output box */
+    .output{
+      background:rgba(0,0,0,0.5); padding:12px; border-radius:8px; min-height:100px; color:#dbeffd;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      white-space:pre-wrap;
+    }
+
+    /* small helpers */
+    .note{ font-size:13px; color:var(--muted); margin-top:8px; }
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px;}
+    @media (max-width:880px){
+      .grid{ grid-template-columns: 1fr; }
+      .panel { order: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">BL</div>
+      <div>
+        <h1>Mengulang dengan <strong>for Loop</strong> di JavaScript</h1>
+        <p class="lead">Materi ringkas dan contoh interaktif tentang cara kerja <code>for</code> loop — oleh BosLuki Edu.</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>1. Apa itu <code>for</code> loop?</h2>
+      <p>Loop atau perulangan adalah alat penting agar komputer bisa menjalankan kode yang sama berkali-kali secara otomatis, tanpa perlu menulis ulang secara manual. <code>for</code> adalah salah satu cara paling sering dipakai di JavaScript untuk membuat perulangan.</p>
+
+      <h2>2. Rumus dasar</h2>
+      <pre><code>for (inisialisasi; kondisi; iterasi) {
+  // kode yang diulang
+}</code></pre>
+      <p class="note">Penjelasan:</p>
+      <ul class="note">
+        <li><strong>inisialisasi</strong> — mulai dari angka berapa (misal: <code>let i = 0</code>).</li>
+        <li><strong>kondisi</strong> — selama kondisi bernilai benar, perulangan terus berjalan (misal: <code>i &lt; 10</code>).</li>
+        <li><strong>iterasi</strong> — perubahan pada setiap putaran (misal: <code>i++</code> menambah 1 setiap kali).</li>
+      </ul>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>3. Contoh sederhana</h2>
+        <p>Cetak angka 1 sampai 5 di konsol:</p>
+        <pre><code>for (let i = 1; i &lt;= 5; i++) {
+  console.log(i);
+}</code></pre>
+        <p>Penjelasan singkat:</p>
+        <ul class="note">
+          <li><code>let i = 1</code> → mulai dari 1</li>
+          <li><code>i &lt;= 5</code> → selama i kurang atau sama 5</li>
+          <li><code>i++</code> → tambah 1 setiap putaran</li>
+        </ul>
+
+        <p class="muted">Hasil di console (jika dijalankan):</p>
+        <div class="output" id="out-simple">Tekan "Jalankan contoh 1" untuk melihat hasil.</div>
+        <div style="margin-top:10px">
+          <button class="btn" id="run-simple">Jalankan contoh 1</button>
+          <button class="btn secondary" id="clear-out">Bersihkan output</button>
+        </div>
+      </div>
+
+      <aside class="panel card">
+        <h2>4. Analogi</h2>
+        <p>Loop <code>for</code> seperti barisan anak di kelas:</p>
+        <ul class="note">
+          <li><strong>Mulai</strong> dari anak ke-1 (inisialisasi)</li>
+          <li><strong>Cek</strong> apakah sudah sampai anak terakhir (kondisi)</li>
+          <li><strong>Lanjut</strong> ke anak berikutnya setelah menandai (iterasi)</li>
+        </ul>
+
+        <h2 style="margin-top:14px">5. Contoh penerapan di DOM</h2>
+        <p>Mewarnai semua elemen dengan class <code>catatan</code> menjadi kuning:</p>
+        <pre><code>const catatan = document.getElementsByClassName("catatan");
+for (let i = 0; i &lt; catatan.length; i++) {
+  catatan[i].style.backgroundColor = "yellow";
+}</code></pre>
+        <p class="note">Di demo bawah ada contoh elemen <code>.catatan</code> yang bisa diwarnai.</p>
+      </aside>
+    </div>
+
+    <div class="card">
+      <h2>6. Latihan Cepat</h2>
+      <p>Tuliskan <code>for</code> loop untuk mencetak semua bilangan genap dari 2 sampai 10. (Klik "Tampilkan jawaban" untuk melihat solusi.)</p>
+
+      <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+        <button class="btn" id="show-answer">Tampilkan jawaban</button>
+        <button class="btn secondary" id="run-even">Jalankan jawaban</button>
+      </div>
+
+      <pre id="answer-block" style="display:none"><code>for (let i = 2; i <= 10; i += 2) {
+  console.log(i);
+}</code></pre>
+
+      <div style="margin-top:12px">
+        <h3 style="margin:0 0 8px">Demo DOM – mewarnai elemen <code>.catatan</code></h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+          <div class="catatan" style="padding:10px;border-radius:8px;background:#222;color:#fff;">Catatan A</div>
+          <div class="catatan" style="padding:10px;border-radius:8px;background:#222;color:#fff;">Catatan B</div>
+          <div class="catatan" style="padding:10px;border-radius:8px;background:#222;color:#fff;">Catatan C</div>
+        </div>
+        <button class="btn" id="color-notes">Warnai semua .catatan</button>
+      </div>
+    </div>
+
+    <footer>
+      Materi ringkas: <strong>Mengulang Dengan for Loop di JavaScript</strong> • BosLuki Edu — jika ingin materi tambahan atau latihan lain, ketik saja!
+    </footer>
+  </div>
+
+  <script>
+    // Demo: contoh 1 (cetak 1..5)
+    const outSimple = document.getElementById('out-simple');
+    const runSimple = document.getElementById('run-simple');
+    const clearOut = document.getElementById('clear-out');
+
+    runSimple.addEventListener('click', () => {
+      let text = '';
+      for (let i = 1; i <= 5; i++) {
+        text += i + '\\n';
+      }
+      outSimple.textContent = text;
+    });
+
+    clearOut.addEventListener('click', () => {
+      outSimple.textContent = 'Tekan "Jalankan contoh 1" untuk melihat hasil.';
+    });
+
+    // Tampilkan jawaban latihan
+    const showAnswer = document.getElementById('show-answer');
+    const answerBlock = document.getElementById('answer-block');
+    const runEven = document.getElementById('run-even');
+
+    showAnswer.addEventListener('click', () => {
+      answerBlock.style.display = answerBlock.style.display === 'none' ? 'block' : 'none';
+    });
+
+    runEven.addEventListener('click', () => {
+      let out = '';
+      for (let i = 2; i <= 10; i += 2) {
+        out += i + '\\n';
+      }
+      // tampilkan sebagai alert dan juga di console
+      alert('Bilangan genap 2..10:\\n' + out);
+      console.log(out);
+    });
+
+    // DOM: warnai semua elemen .catatan
+    document.getElementById('color-notes').addEventListener('click', () => {
+      const catatan = document.getElementsByClassName('catatan');
+      for (let i = 0; i < catatan.length; i++) {
+        catatan[i].style.backgroundColor = '#ffd54f'; // kuning hangat
+        catatan[i].style.color = '#111';
+      }
+    });
+
+    // (opsional) tulis contoh di console agar siswa bisa lihat
+    console.log('Contoh for loop:');
+    for (let i=1;i<=5;i++){ console.log(i); }
+  </script>
+</body>
+</html>

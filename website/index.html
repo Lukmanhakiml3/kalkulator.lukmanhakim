@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe Channel Terbaik di Alam Semesta 🌌</title>
+  <style>
+    /* ======== STYLE DASAR ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      background: linear-gradient(90deg, #ff0057, #ff7b00, #ffee00);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow 3s infinite linear;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff0057; }
+      50% { text-shadow: 0 0 40px #ffee00; }
+      100% { text-shadow: 0 0 10px #ff0057; }
+    }
+
+    p {
+      margin: 15px 0;
+      font-size: 1.2em;
+      color: #e0e0e0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ======== TOMBOL SUBSCRIBE ======== */
+    .btn-subscribe {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff0000, #ff6a00);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.5em;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      transition: 0.3s;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 20px rgba(255,0,0,0.6); }
+      50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(255,100,0,0.9); }
+      100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,0,0,0.6); }
+    }
+
+    .btn-subscribe:hover {
+      background: linear-gradient(90deg, #ff6a00, #ff0000);
+      transform: scale(1.15);
+    }
+
+    /* ======== ANIMASI BINTANG ======== */
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ======== TULISAN KEREN ======== */
+    .tagline {
+      font-size: 1.4em;
+      margin-top: 20px;
+      color: #ffd700;
+      animation: floatText 3s ease-in-out infinite;
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .btn-subscribe { font-size: 1.2em; padding: 12px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <h1>🌟 Channel Terbaik di Alam Semesta 🌟</h1>
+  <p>Bergabunglah bersama jutaan bintang yang sudah subscribe!</p>
+
+  <a class="btn-subscribe" href="https://www.youtube.com/channel/UCmHYW5RB6Ku00PuaYD783Rw" target="_blank">
+    🔴 SUBSCRIBE SEKARANG
+  </a>
+
+  <p class="tagline">Setiap klik-mu menerangi galaksi YouTube 💫</p>
+
+  <script>
+    // Buat efek bintang acak
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDelay = Math.random() * 2 + "s";
+      starsContainer.appendChild(star);
+    }
+
+    // Tambah efek suara saat klik subscribe
+    const btn = document.querySelector(".btn-subscribe");
+    const sound = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_2a3fba8d87.mp3");
+    btn.addEventListener("click", () => {
+      sound.play();
+    });
+  </script>
+
+</body>
+</html>

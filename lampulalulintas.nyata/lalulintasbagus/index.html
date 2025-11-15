@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lampu Lalu Lintas Cinematic</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="kontainer">
+    <h2>🚦 Simulasi Lampu Lalu Lintas Cinematic</h2>
+
+    <div class="lampu-traffic">
+      <div class="lampu merah" id="lampu-merah"></div>
+      <div class="lampu kuning" id="lampu-kuning"></div>
+      <div class="lampu hijau" id="lampu-hijau"></div>
+    </div>
+
+    <div class="kontrol">
+      <button class="tombol" id="mulai">▶️ Mulai Otomatis</button>
+      <button class="tombol stop" id="berhenti">⏹️ Berhenti</button>
+    </div>
+
+    <div class="kontrol-manual">
+      <button class="tombol manual merah-btn" id="btn-merah">🔴 Merah</button>
+      <button class="tombol manual kuning-btn" id="btn-kuning">🟡 Kuning</button>
+      <button class="tombol manual hijau-btn" id="btn-hijau">🟢 Hijau</button>
+    </div>
+
+    <p id="status">Status: Mati</p>
+
+    <!-- 🎵 Suara Efek -->
+    <audio id="suara-beep" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_0d6b6d9a8b.mp3?filename=beep-short-1.mp3"></audio>
+    <audio id="suara-ambient" src="https://cdn.pixabay.com/download/audio/2022/11/03/audio_d9ad8b8748.mp3?filename=urban-traffic-noise-ambient.mp3" loop></audio>
+  </div>
+
+  <script src="traffic.js"></script>
+</body>
+</html>

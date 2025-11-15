@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Click Effect by @BosLuki</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0d0f25, #070816 70%);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #00e0ff;
+      text-shadow: 0 0 15px #00e0ff;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    #tombol-keren {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      color: white;
+      background: linear-gradient(90deg, #ff004c, #ff7300);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 80, 0, 0.8);
+      transition: 0.3s;
+    }
+
+    #tombol-keren:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(255, 120, 0, 1);
+    }
+
+    .anime-img {
+      position: absolute;
+      width: 200px;
+      height: auto;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 1s ease;
+      pointer-events: none;
+    }
+
+    .anime-show {
+      opacity: 1;
+      transform: scale(1);
+      filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+    }
+
+    footer {
+      position: fixed;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌌 Klik Tombolnya dan Rasakan Aura Anime by @BosLuki 🌌</h1>
+
+  <button id="tombol-keren">Klik Aku!</button>
+
+  <footer>🔥 BosLuki Universe | Power of Creativity 🔥</footer>
+
+  <script>
+    const tombol = document.getElementById("tombol-keren");
+
+    tombol.addEventListener("click", function() {
+      // buat elemen gambar baru
+      const img = document.createElement("img");
+      img.src = "https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&w=500&q=80"; // gambar anime-style umum
+      img.classList.add("anime-img");
+
+      // posisi acak di layar
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (window.innerHeight - 200);
+      img.style.left = x + "px";
+      img.style.top = y + "px";
+
+      // tambahkan ke body
+      document.body.appendChild(img);
+
+      // tampilkan animasi
+      setTimeout(() => {
+        img.classList.add("anime-show");
+      }, 100);
+
+      // hilangkan setelah beberapa detik
+      setTimeout(() => {
+        img.classList.remove("anime-show");
+        img.style.opacity = "0";
+        setTimeout(() => img.remove(), 1000);
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

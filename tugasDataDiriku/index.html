@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator & Data Diriku</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 20px;
+    }
+    h2 { color: red; }
+    h3.info { color: green; }
+    .info { color: blue; }
+    span.info { font-style: italic; color: purple; }
+
+    /* Kalkulator */
+    .kalkulator {
+      margin-top: 40px;
+      width: 250px;
+      padding: 10px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #999;
+    }
+    .tampilan {
+      width: 95%;
+      height: 40px;
+      margin-bottom: 10px;
+      text-align: right;
+      font-size: 20px;
+      padding: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td { text-align: center; }
+    button {
+      width: 50px;
+      height: 40px;
+      font-size: 18px;
+      margin: 2px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .operator { background-color: orange; }
+    .sama-dengan { background-color: green; color: white; }
+    .reset { background-color: red; color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- Bagian Data Diriku -->
+  <h2>Data Diriku</h2>
+  <h3 class="info">Judul Lama</h3>
+  <div class="info">Nama Lama</div>
+  <div>Kelas: <span class="info">XI</span></div>
+  <p>Alamat: <span class="info">Alamat Lama</span></p>
+  <p>Keterangan: <span class="info">Belum diubah</span></p>
+
+  <hr>
+
+  <!-- Kalkulator -->
+  <div class="kalkulator">
+    <input type="text" id="tampilan" class="tampilan" readonly>
+    <table>
+      <tr>
+        <td><button class="angka">7</button></td>
+        <td><button class="angka">8</button></td>
+        <td><button class="angka">9</button></td>
+        <td><button class="operator">/</button></td>
+      </tr>
+      <tr>
+        <td><button class="angka">4</button></td>
+        <td><button class="angka">5</button></td>
+        <td><button class="angka">6</button></td>
+        <td><button class="operator">x</button></td>
+      </tr>
+      <tr>
+        <td><button class="angka">1</button></td>
+        <td><button class="angka">2</button></td>
+        <td><button class="angka">3</button></td>
+        <td><button class="operator">-</button></td>
+      </tr>
+      <tr>
+        <td><button class="angka">0</button></td>
+        <td><button class="angka">.</button></td>
+        <td><button class="sama-dengan">=</button></td>
+        <td><button class="operator">+</button></td>
+      </tr>
+      <tr>
+        <td colspan="4"><button class="reset">C</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <script src="aplikasi.js"></script>
+</body>
+</html>
